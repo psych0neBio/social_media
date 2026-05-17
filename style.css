@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========== BACKGROUND ========== */
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+/* ========== LANGUAGE SWITCHER ========== */
+.lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    padding: 8px 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.lang-switch:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.02);
+}
+
+.lang-switch:active {
+    transform: scale(0.97);
+}
+
+.lang-switch svg {
+    width: 18px;
+    height: 18px;
+    opacity: 0.7;
+}
+
+.lang-switch span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* ========== CONTAINER ========== */
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 100px 20px 60px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ========== PROFILE ========== */
+.profile {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.profile h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -1.5px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.profile p {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 1rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.profile p svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0.5;
+}
+
+/* ========== SECTIONS ========== */
+.section {
+    margin-bottom: 40px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.section-header svg {
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* ========== LINK CARDS ========== */
+.link-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 18px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.link-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.link-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.link-card:hover::before {
+    opacity: 1;
+}
+
+.link-card:active {
+    transform: translateY(0) scale(0.98);
+    transition: all 0.1s ease;
+}
+
+/* ========== ICONS ========== */
+.link-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.link-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.icon-telegram { background: rgba(0, 136, 204, 0.1); }
+.icon-steam { background: rgba(27, 40, 56, 0.4); }
+.icon-instagram { background: linear-gradient(135deg, rgba(225, 48, 108, 0.1), rgba(88, 81, 219, 0.1)); }
+.icon-github { background: rgba(255, 255, 255, 0.05); }
+.icon-lolz { background: rgba(139, 92, 246, 0.1); }
+.icon-discord { background: rgba(88, 101, 242, 0.1); }
+
+/* ========== LINK INFO ========== */
+.link-info {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.link-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.link-desc {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.35);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ========== ARROWS ========== */
+.link-arrow {
+    color: rgba(255, 255, 255, 0.2);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.link-arrow svg {
+    width: 18px;
+    height: 18px;
+}
+
+.link-card:hover .link-arrow {
+    color: rgba(255, 255, 255, 0.6);
+    transform: translateX(2px);
+}
+
+.copy-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    text-align: center;
+    margin-top: 48px;
+    padding-top: 24px;
+}
+
+.footer p {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+/* ========== UTILITIES ========== */
+.hidden {
+    display: none !important;
+}
+
+/* ========== COPY TOOLTIP ========== */
+.copy-tooltip {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 14px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 200;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.copy-tooltip.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 480px) {
+    .container {
+        padding: 90px 16px 40px;
+    }
+
+    .profile h1 {
+        font-size: 2.2rem;
+    }
+
+    .link-card {
+        padding: 13px 16px;
+        border-radius: 16px;
+    }
+
+    .link-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+    }
+
+    .link-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .lang-switch {
+        top: 16px;
+        right: 16px;
+        padding: 6px 14px;
+    }
+}
